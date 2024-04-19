@@ -1,0 +1,20 @@
+#include "queue_ds.h"
+
+queue_t* create_queue(uint32_t max_size)
+{
+    queue_t *myQueue=NULL;
+    myQueue =(void**)malloc(max_size*sizeof(void*));
+    myQueue->queue_rear=-1;
+    myQueue->queue_front=-1;
+    myQueue->queue_max_size=max_size;
+}
+queue_status_t Enqueue(queue_t* queue_obj, void* item_ptr)
+{
+    queue_status_t state=QUEUE_NOK;
+    if(Qu)
+}
+void* Dequeue(queue_t* queue_obj,queue_status_t* queue_status);
+void* Queue_front(queue_t* queue_obj,queue_status_t* queue_status);
+void* Queue_rear(queue_t* queue_obj,queue_status_t* queue_status);
+queue_status_t Queue_count(queue_t *queue_obj,uint32_t *elements_count);
+queue_status_t Queue_destroy(queue_t *queue_obj);

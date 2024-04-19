@@ -1,0 +1,148 @@
+#include "D_stack_ds.h"
+
+static uint8_t stack_is_full (stack_t * stack_obj)
+{
+        return (stack_obj->element_count==stack_obj->stack_max_size);
+}
+static stack_status_t stack_is_empty (stack_t * stack_obj)
+{
+    return (stack_obj->element_count==0);
+}
+
+
+stack_t *create_stack(uint32_t max_size, stack_status_t *ret_status)
+{
+    stack_t *mystack =NULL;
+    if(NULL==ret_status)
+    {
+        *ret_status=STACK_NULL_POINTER;
+        mystack=NULL;
+    }
+    else
+    {
+        mystack=(stack_t*)malloc(sizeof(stack_t));
+        if(!mystack)
+        {
+            *ret_status=STACK_NOK;
+            mystack=NULL;
+        }
+        else
+        {
+            mystack->stack_top= -1;
+            mystack->stack_max_size=max_size;
+            mystack->element_count=0;
+            mystack->stack_array=(void**)calloc(mystack->stack_max_size,sizeof(void*));
+            if (!mystack->stack_array)
+            {
+                free(mystack);
+                mystack=NULL;
+                *ret_status=STACK_NOK;
+            }
+            else
+            {
+                *ret_status=STACK_OK;
+            }
+        }
+    }
+    return mystack;
+}
+stack_t *destroy_stack(stack_t *stack_obj, stack_status_t *ret_status)
+{
+    if((NULL==ret_status)||(NULL==stack_obj))
+    {
+        *ret_status=STACK_NULL_POINTER;
+    }
+    else
+    {
+        free(stack_obj->stack_array);
+        free(stack_obj);
+        *ret_status=STACK_OK;
+    }
+   return NULL;
+}
+stack_status_t push_stack(stack_t *stack_obj, void *item_ptr)
+{
+    stack_status_t ret=STACK_NOK;
+    if((NULL==item_ptr)||(NULL==stack_obj))
+    {
+        ret=STACK_NULL_POINTER;
+    }
+    else
+    {
+        if (stack_is_full(stack_obj))
+        {
+            ret=STACK_FULL;
+        }
+        else
+        {
+            (stack_obj->stack_top)++;
+            stack_obj->stack_array[stack_obj->stack_top]=item_ptr;
+            (stack_obj->element_count)++;
+            ret=STACK_OK;
+        }
+    }
+    return ret;
+}
+void * pop_stack (stack_t *stack_obj,stack_status_t *ret_status)
+{
+    void *ptr=NULL;
+    if((NULL==ret_status)||(NULL==stack_obj))
+    {
+        *ret_status=STACK_NULL_POINTER;
+        PT
+    }
+    else
+    {
+        if(stack_is_empty(stack_obj))
+        {
+            *ret_status=STACK_EMPTY;
+            *ptr=NULL;
+        }
+        else
+        {
+            ptr=stack_obj->stack_array[stack_obj->stack_top];
+            (stack_obj->stack_top)--;
+            (stack_obj->element_count)--;
+            *ret_status=STACK_OK;
+
+        }
+    }
+return ptr;
+}
+void * stack_top (stack_t *stack_obj,stack_status_t *ret_status)
+{
+    void *ptr=NULL;
+    if((NULL==ret_status)||(NULL==stack_obj))
+    {
+        *ret_status=STACK_NULL_POINTER;
+    }
+    else
+    {
+        if(stack_is_empty(stack_obj))
+        {
+            *ret_status=STACK_EMPTY;
+        }
+        else
+        {
+            ptr=stack_obj->stack_array[stack_obj->stack_top];
+            *ret_status=STACK_OK;
+
+        }
+    }
+return ptr;
+}
+stack_status_t stack_count (stack_t *stack_obj,uint32_t *stackCount)
+{
+
+    stack_status_t ret=STACK_NOK;
+    if((NULL==stackCount)||(NULL==stack_obj))
+    {
+        ret=STACK_NULL_POINTER;
+    }
+    else
+    {
+        *stackCount=(stack_obj->stack_top)+1;
+        ret=STACK_OK;
+    }
+  return ret;
+}

@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1692428885 source:e:\0.career\0.ahmed_abdelghafar diploma\ds\linked_list_ds\linked_list_ds.c
+	"linked_list_ds.h"
+
+1692429500 source:e:\0.career\0.ahmed_abdelghafar diploma\ds\linked_list_ds\main.c
+	<stdio.h>
+	<stdlib.h>
+	"linked_list_ds.h"
+
+1692429512 e:\0.career\0.ahmed_abdelghafar diploma\ds\linked_list_ds\linked_list_ds.h
+	"std_types.h"
+	<stdio.h>
+	<stdlib.h>
+
+1691743833 e:\0.career\0.ahmed_abdelghafar diploma\ds\linked_list_ds\std_types.h
+	<stdio.h>
+	<stdlib.h>
+

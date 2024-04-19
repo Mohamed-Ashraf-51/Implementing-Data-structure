@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1691842997 source:e:\0.career\0.ahmed_abdelghafar diploma\ds\d_stack_ds\main.c
+	<stdio.h>
+	<stdlib.h>
+	"D_stack_ds.h"
+
+1691835545 e:\0.career\0.ahmed_abdelghafar diploma\ds\d_stack_ds\d_stack_ds.h
+	"std_types.h"
+	<stdio.h>
+	<stdlib.h>
+
+1691743833 e:\0.career\0.ahmed_abdelghafar diploma\ds\d_stack_ds\std_types.h
+	<stdio.h>
+	<stdlib.h>
+
+1691842441 source:e:\0.career\0.ahmed_abdelghafar diploma\ds\d_stack_ds\d_stack_ds.c
+	"D_stack_ds.h"
+
